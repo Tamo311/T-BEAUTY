@@ -79,17 +79,13 @@ header{
     transition: .5s;
     position: relative;
 }
-.header ul li:hover{
-    transform: scale(1.2) translateY(-2px);
-    transition: .5s;
-}
 a{
     text-decoration: none;
     color: rgb(248, 237, 226);
-    font: status-bar;
-    font-size: 17px;
-    font-weight: 600;
-    letter-spacing: 2px;
+    font-family: monospace;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 3px;
     transition: .5s;
 }
 .a_animation{
@@ -105,11 +101,18 @@ a:hover{
     color: #CEB25F;
     border-bottom: solid 2px #CEB25F;
 }
-.social{
+.fa-chevron-down{
+    margin-left: 2px;
+    font-size: 7px;
+}
+li:hover .fa-chevron-down{
+    transform: rotate(-180deg);
+ }
+header .social{
     margin-right: 30px;
 }
 i{
-    margin-left: 15px;
+    margin: 0 7px;
     transition: .5s;
 }
 i:hover{
@@ -136,61 +139,55 @@ img{
 }
 /* ==============dropdown sections */
 
-@keyframes dropdown_animation{
-    from{opacity: 0; transform: scaleX(.7);}
-    to{opacity: 1; transform: scaleX(1);}
-}
-#product_dropdown,#service_dropdown{
-    display: none;
+#product_dropdown,#service_dropdown,#BG_product_dropdown,#BG_service_dropdown{
+    transform: scaleY(0);
     padding-top: 15px;
-    transition: 1s;
-    animation: dropdown_animation 1s;
+    transition: .5s;
 }
-#service_dropdown_ul,#product_dropdown_ul{
+#service_dropdown_ul,#product_dropdown_ul,#BG_service_dropdown_ul, #BG_product_dropdown_ul{
     position: absolute;
-    margin-left: -30px;
+    margin-left: -15px;
     display: block;
-    width: 180px;
     padding: 10px 20px 20px 20px;
     background-color: rgba(66, 64, 64, 0.404);
     border: 2px solid #CEB25F;
 }
 #product_dropdown_ul{
-    width: 130px; 
-    margin-left: -10px;
+    margin-left: 0px;
 }
-#service_dropdown_ul li, #product_dropdown_ul li{
+#service_dropdown_ul li, #product_dropdown_ul li, #BG_service_dropdown_ul li,#BG_product_dropdown_ul li{
     margin-left:0;
     padding: 10px 10px 3px 1px;
     border-bottom: solid 1px rgb(248, 237, 226);
 }
 #service_dropdown_ul li:hover, #product_dropdown_ul li:hover{
     transform: scale(1);
+    border-color:#CEB25F  ;
 }
 #service_dropdown_ul a,#product_dropdown_ul a{
-  color: rgb(248, 237, 226);
-  letter-spacing: .5px;
+  letter-spacing: 1px;
   font-family: monospace;
   font-size: 10px;
   font-weight: 400;
   text-transform: uppercase;
 }
-#service_dropdown_ul a:hover,#product_dropdown_ul a:hover{
-    color:#CEB25F ;
-}
 header ul :nth-child(2):hover #service_dropdown,header ul :nth-child(3):hover #product_dropdown{
-    display: block;
+    transform: scaleY(1);
 }
 
  /*========= burger menu icon */
 
- #burgerIcon{
+ .burgerIcon{
      display: none;
      position: fixed;
-     right: 60px;
-     top: 25px;
+     right: 30px;
+     top: 30px;
      width: 35px;
      z-index: 10;
+     transition: 1s;
+ }
+ .burgerIcon_animation{
+     top:25px ;
  }
 .line{
     width: 100%;
@@ -207,10 +204,6 @@ header ul :nth-child(2):hover #service_dropdown,header ul :nth-child(3):hover #p
     transition: ease-in-out 1s;
     background-color:#CEB25F;
 }
-#burgerIcon:hover .line{
-    background-color:#CEB25F;
-    transition: .3s;
-}
  .change .line2{
      transform: translateX(50px);
     opacity: 0;
@@ -226,44 +219,118 @@ header ul :nth-child(2):hover #service_dropdown,header ul :nth-child(3):hover #p
 .burger_menu{
      position: fixed;
      top: 0;
-     right: -60%;
-     width: 60%;
+     right: -55%;
+     width: 55%;
      height: 100%;
      display: flex;
      flex-direction: column;
      justify-content: center;
      align-items: center;
-     padding-top: 150px;
-     background-color: rgb(56, 56, 56);
+     padding-top: 100px;
+     background-color: rgb(66, 64, 64);
      backdrop-filter: blur(30px);
-     border-top: 2px solid #CEB25F;
-     border-bottom: 2px solid #CEB25F;
      border-left: 2px solid #CEB25F;
-     transition: ease-in-out 1s;
+     transition: ease-in-out .5s;
      z-index: 9;
 }
 .move_burger_menu{
     right: 0;
-    transition: ease-in-out 1s;
+    transition: ease-in-out .5s;
 }
 #burger_menu a{
     padding: 10px 0;
+    font-size: 17px;
     color: #CEB25F;
     transition: .3s;
-}
-.burger_soc{
-    margin-left: 15px;
 }
 .burger_soc i{
-    margin-top: 150px;
+    margin: 150px 10px 0;
+    font-size: 22px;
     color: #CEB25F;
     transition: .3s;
 }
-#burger_menu a:hover, .burger_soc i:hover{
-    color: #CEB25F;
-    transition: .3s;
+#burger_menu ul{
+    list-style: none;
+    font-size: 10px;
+}
+#burger_menu ul li a{
+    font-size: 8px;
+}
+#BG_service_dropdown{
+    margin-left: -20px;
+    padding: 0;
+}
+#BG_product_dropdown{
+    padding: 0;
+}
+#burger_menu ul{
+    backdrop-filter: blur(10px);
+}
+#burger_menu :nth-child(2):hover #BG_service_dropdown, #burger_menu :nth-child(3):hover #BG_product_dropdown{
+    transform: scaleY(1);
+}
+#burger_menu :nth-child(2):hover .fa-chevron-down, #burger_menu :nth-child(3):hover .fa-chevron-down{
+    transform: rotate(-180deg);
 }
       /*=================== section */
+.section_user{
+    width: 90%;
+    height: 90%;
+    position: fixed;
+    top: 90px;
+    bottom: 100px;
+    transition: .5s;
+    z-index: 9;
+    transform-origin: top;
+    transform: scaleY(0);
+   }
+   @keyframes user_animation{
+       from{opacity: 0; transform: scaleY(0); margin-top: -50px;}
+       to{ opacity: 1; transform: scaleY(1);margin-top: 0;}
+   }
+.switch_user_section{
+    transform: scaleY(1);
+    transition: .5s;
+}
+.user_info{
+    width: 30%;
+    position: fixed;
+    top: 0;
+    right: 0px;
+    padding: 20px;
+    font-family: monospace;
+    font-weight: 300;
+    background-color: rgba(66, 64, 64, 0.404);
+    color: rgb(248, 237, 226);
+    border-radius: 10px;
+    border: 2px solid #CEB25F;
+    box-shadow: 5px 2px 14px -2px #000000;
+    overflow: hidden;
+    transition: ease-in-out;
+}
+.user_info h2{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 3px;
+}
+.user_info h4{
+    margin-top: 30px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    padding-bottom: 10px;
+    border-bottom: solid 1px rgb(248, 237, 226);
+}
+.user_info  span{
+    font-family: monospace;
+    padding-left: 7px;
+    letter-spacing: 0;
+}
+#reset{
+    margin-left: 70px;
+    color: rgb(248, 237, 226);
+}
+ /* ===============banner div &image */
 #main{
     display: flex;
 }
@@ -276,64 +343,12 @@ header ul :nth-child(2):hover #service_dropdown,header ul :nth-child(3):hover #p
     width: 100%;
 }
 #aside{
-    margin-top: 180px;
+    margin-top: 250px;
     transition: ease-in-out 1s;
 }
-#section_user{
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 120px;
-    transition: 1s;
-    display: none;
-    z-index: 9;
-   }
-   @keyframes user_animation{
-       from{transform: scale(0); opacity: 0;}
-       to{transform: scale(1); opacity: 1;}
-   }
-.user_info{
-    width: 300px;
-    height: 380px;
-    margin-left: 1020px;
-    padding: 20px;
-    font-family: monospace;
-    font-weight: 300;
-    background-color: rgba(66, 64, 64, 0.404);
-    color: rgb(248, 237, 226);
-    border-radius: 10px;
-    border: 2px solid #CEB25F;
-    box-shadow: 5px 2px 14px -2px #000000;
-    overflow: hidden;
-    animation: user_animation 1s;
-}
-.user_info h2{
-    text-align: center;
-    font-size: 25px;
-    font-weight: 400;
-    letter-spacing: 2px;
-}
-.user_info h4{
-    margin-top: 30px;
-    font-weight: 400;
-    letter-spacing: 1px;
-    padding-bottom: 10px;
-    border-bottom: solid 1px rgb(248, 237, 226);
-}
-.user_info h4 span{
-    width: 100px; 
-    font-family: monospace;
-    padding-left: 10px;
-    letter-spacing: 0;
-}
-#reset{
-    margin-left: 50px;
-    color: rgb(248, 237, 226);
-}
-
 /*////================= form  */
 form{
-    width: 220px;
+    width: 280px;
     display: flex;
     flex-direction: column;
     color: rgba(66, 66, 66, 0.685);
@@ -349,7 +364,8 @@ input{
     width:100%;
 }
 label{
-    font-size: 12px;
+    font-size: 17px;
+    font-weight: 500;
     letter-spacing: 1px;
     margin-top: 20px;
     border-bottom: 1px solid rgba(66, 66, 66, 0.685);
@@ -415,17 +431,17 @@ button:hover{
     font-size: 30px;
 }
 @keyframes organic_img_animation{
-    from{margin-top: 350px;}
+    from{margin-top: 300px;}
     to{margin-top: 0;}
 }
 .organic_img{
     width: 45%;
-    margin-top: 350px;
-    transition: 1s;
+    margin-top: 300px;
+    transition: .5s;
 }
 .organic_img_animation{
     margin-top: 0;
-    animation: organic_img_animation 2s;
+    animation: organic_img_animation 1s;
 }
 .organic_img:hover{
     transform: scale(1.3);
@@ -689,7 +705,7 @@ button:hover{
       font-size: 12px;
       font-weight: 700;
   }
-  .social{
+ footer .social{
     margin-top: 20px;
 }
 footer .social i{
@@ -706,7 +722,7 @@ footer .social i{
        to{transform: scale(1); bottom: 30px;}
    }
    @keyframes move_backToTop{
-       from{opacity:.7; transform: translateY(-10px);}
+       from{opacity:.7; transform: translateY(-20px);}
        to{ opacity:.3; transform: translateY(0);}
    }
   .backToTop{
@@ -720,14 +736,12 @@ footer .social i{
    transition: 2s;
   }
   .backToTop i{
-    transform: rotate(90deg);
-    font-size: 35px;
-    color: #d3b762;
+    font-size: 30px;
   }
   .backToTop i:hover{
     opacity: 1;
-    transform: scale(1.5) rotate(90deg);
     transition: ease-in-out .5s;
+    color: black;
   }
   .move_backToTop{
       animation:move_backToTop 2s infinite ;
@@ -735,17 +749,9 @@ footer .social i{
       animation-direction: alternate;
       transition: 2s;
   }
-  @keyframes animation_fadeInLeft{
-      from{margin-left: -500px;}
-      to{margin-left: 0;}
-  }
-  .fadeInLeft{
-      animation: animation_fadeInLeft 1s ;
-      animation-duration: 1s;
-  }
   @keyframes animation_fadeInUp{
-    from{margin-top: 200px;}
-    to{margin-top: 0;}
+    from{margin-top: 300px; filter: saturate(0); opacity: 0;}
+    to{margin-top: 0; filter: saturate(1); opacity: 1;}
 }
 .fadeInup{
     animation: animation_fadeInUp 1s ;
@@ -763,11 +769,15 @@ footer .social i{
     .header a{
         font-size: 25px;
     }
+    .section_user{
+        width: 80%;
+        top: 120px;
+    }
+    form{
+        width: 500px;
+    }
     label{
         font-size: 20px;
-    }
-    .user_info{
-        margin-left: 2100px;
     }
     .product_content{
         height: 550px;
@@ -800,15 +810,11 @@ footer .social i{
     .header ul li{
         margin-left: 30px;
     }
-    .user_info{
-        margin-left: 700px;
-        height: 350px;
-    }
     #reset{
-        margin-top: 20px;
+       margin-left: 40px;
     }
     #aside{
-        margin-top: 100px;
+        margin-top: 200px;
     }
     label{
         margin-top: 10px;
@@ -818,6 +824,9 @@ footer .social i{
     }
     .main{
         height: 450px;
+    }
+    .organic_section{
+        margin: 50px 0;
     }
    .organic_img img{
        height: 80%;
@@ -835,6 +844,9 @@ footer .social i{
    img{
        width: 40px;
        height: 40px;
+   }
+   .img_animation{
+       animation: none;
    }
    header{
        height: 70px;
@@ -854,17 +866,20 @@ footer .social i{
    .header ul li{
        margin-right: 10px;
    }
-   .social{
+    header .social{
        margin-right: 10px;
    }
    a{
     font-family: monospace;
     font-weight: 500;
     letter-spacing: 1px;
-    font-size: 12px;
+    font-size: 15px;
    }
    i{
     margin-right: 0px;
+}
+.fa-chevron-down{
+    margin-left:0;
 }
 
 /* user inpormation  */
@@ -872,20 +887,13 @@ footer .social i{
     height: 350px;
 }
 #aside{
-    padding-top: 30px;
-    margin-top: 55px;
+    margin-top: 150px;
 }
-.user_info{
-    margin-left: 500px;
-    width: 250px;
-    height: 260px;
-    padding: 10px;
-}
-#section_user{
+.section_user{
     top: 70px;
 }
-#reset{
-    margin-top: 10px;
+.user_info{
+    width: 40%;
 }
 .user_info h2{
    font-size: 20px;
@@ -893,7 +901,6 @@ footer .social i{
 }
 .user_info h4{
     margin-top: 20px;
-    font-size: 12px;
     font-weight: 300;
     letter-spacing: 1px;
     padding-bottom: 5px;
@@ -903,7 +910,6 @@ footer .social i{
     padding-left: 5px;
 }
 #reset{
-    margin-left: 40px;
     padding: 1px 10px;
     letter-spacing: 2px;
 }
@@ -985,21 +991,21 @@ label{
     .header ul{
         display: none;
     }
-    .social{
-        margin-right: 50px;
+    .fa-chevron-down{
+        margin-left:2px;
     }
 /* user inpormation  */
 .main{
-    height: 300px;
+    background-image: url(./images/banner.img\(resize\).jpg);
+   background-position-x:center ;
+   background-position-y: top;
+   height: 300px;
 }
- #aside{
-     padding-top: 20px;
- }
- .user_info{
-    margin-left: 300px;
-    width: 260px;
-    height: 260px;
-    padding: 10px;
+#aside{
+    margin-top: 100px;
+}
+.user_info{
+    width: 50%;
 }
  .user_info h2{
     font-size: 20px;
@@ -1007,9 +1013,6 @@ label{
  .user_info h4{
     margin-top: 15px;
     font-size: 10px;
- }
- #reset{
-     margin-left: 40px;
  }
  /*////================= form  */
 form{
@@ -1019,10 +1022,7 @@ form{
      margin-top: 20px;
  }
  input{
-     width: 100px;
- }
- #submit{
-     width: 60%;
+     width: 120px;
  }
  /* ======================= services */
 
@@ -1047,23 +1047,15 @@ form{
     text-align: center;
  }
  .service_text button{
-     width: 50%;
-   margin-left: 20px;
+     width: 40%;
  }
  /* ==============organic section */
 
- .organic_img img{
-    height: 300px;
-    width: 300px;
-}
 .organic_content h2{
     font-size: 20px;
 }
-.organic_content p{
-    font-size: 12px;
-}
 .banner_text h1{
-    font-size: 20px;
+    font-size: 22px;
 }
  /* =================product section */
 
@@ -1080,7 +1072,6 @@ form{
 }
 .product_content{
     width: 45%;
-    height: 400px;
     margin-bottom: 30px;
 }
 .product_content h2{
@@ -1113,31 +1104,33 @@ form{
      /* ================contact section */
  .contact_section{
     flex-direction: column;
-    justify-content: center;
 }
 .contact_info{
-    font-size: xx-small;
-    font-weight: 400;
-    margin-left: 30px;
+    margin-left: 20px;
 }
 .contact{
         padding: 20px 0px;
 }
-.contact i{
-    margin-left: 0;
-}
-#burgerIcon{
+.burgerIcon{
     display: block;
-    width: 35px;
-    z-index: 10;
 }
+/*=========== back to top button */
+.backToTop{
+    bottom: 15px;
+    right: 15px;
+   }
+   .backToTop i{
+    font-size: 20px;
+  }
  /*================== footer */
  footer{
     height: 70px;
 }
+header .social{
+    margin-right: 50px;
+}
 .social{
     margin-top: 7px;
-    margin-right: 60px;
 }
 .footer{
     padding: 5px 0;
@@ -1147,25 +1140,61 @@ form{
 }
 @media only screen and (max-width:425px) {
     .container{
-        max-width: 400px;
-    }
-    .header{
-        padding-top: 5px;
+        max-width: 380px;
     }
     header{
-        height: 55px;
+        height: 60px;
     }
-    a{
-        font-size: 10px;
+    header .social{
+        margin-left: 55px;
     }
-    .social{
-       margin-right: 70px;
+    @keyframes header_animation{
+        from{ height: 60px;}
+        to{ height: 50px;}
     }
-    .social i{
-        margin-left: 5px;
+    .header_animation{
+        height: 50px;
+    } 
+    @keyframes img_animation{
+        from{width: 40px; height: 40px;}
+        to{width: 30px; height: 30px;}
+    }
+    .img_animation{
+       width: 30px;
+       height: 30px;
+    }
+    .a_animation{
+        font-size: 13px;
+    }
+    .burgerIcon{
+        top: 25px;
+        right: 20px;
+     }
+    .burgerIcon_animation{
+        top: 17px;
+    }
+    .main{
+        height: 250px;
+    }
+    #aside{
+        margin-top: 75px;
+    }
+    form{
+        width: 280px;
+     }
+     #submit{
+         width: 40%;
+     }
+     input{
+         width: 200px;
+     }
+    .user_info{
+        width: 80%;
+        backdrop-filter: blur(10px);
+        transition: .5s;
     }
     #reset{
-        margin-top: 20px;
+       margin-left: 50px;
     }
     button:hover{
         letter-spacing: 2px;
@@ -1174,29 +1203,22 @@ form{
     }
     .service_text button{
         margin-left: 0;
+        width: 50%;
     }
-     /*============ burger icon */
      
- #burgerIcon{
-        right: 65px;
-    }
  .service_content{
      flex-wrap: wrap;
      justify-content: center;
  }
- .service_text p{
-     font-size: 10px;
- }
  .banner_text h1{
-     font-size: 17px;
      line-height: 30px;
  }
  .organic_content ul{
     width: 300px;
 }
 .organic_img img{
-    height: 250px;
-    width: 250px;
+    height: 180px;
+    width: 180px;
 }
 .organic_content h2{
     width: 250px;
@@ -1218,9 +1240,6 @@ form{
     height: 150px;
     width: 200px;
 }
-.service_text button{
-    width: 70%;
-}
 .service_text{
     width: 80%;
 }
@@ -1228,10 +1247,7 @@ form{
 }
 @media only screen and (max-width:375px){
     .container{
-        max-width: 350px;
-    }
-    .main{
-        width: 375px;
+        width: 340px;
     }
     .product_content h2{
         font-size: 8px;
@@ -1240,68 +1256,40 @@ form{
         height: 400px;
     }
     .organic_img img{
-        height: 200px;
-        width: 200px;
+        height: 150px;
+        width: 150px;
     }
     #burgerIcon{
-        right: 35px;
+        right: 20px;
     }
-    .social{
-        margin-right: 50px;
-     }
-     .social i{
-        font-size: 7px;
+    #aside{
+        margin-top: 70px;
+    }
+    .user_info{
+        width: 100%;
+    }
+    #reset{
+        margin-left: 60px;
+    }
+    .contact_info h5{
+        letter-spacing: 0;
     }
 }
 @media only screen and (max-width:320px){
     .container{
-        max-width: 300px;
+        max-width: 290px;
+    }
+    header .social{
+        margin-right: 40px;
+    }
+    #aside{
+        margin-top: 55px;
     }
     #reset{
-        margin-left: 70px;
+        margin-left: 50px;
     }
-    .contact_info{
-        padding: 10px 25px 15px;
-        font-size: xx-small;
-        font-weight: 500;
-        line-height: 20px;
-    }
-    #burgerIcon{
-        right: 30px;
-    }
-    
    .product_content{
         width: 90%;
         height: 380px;
-}
-.social{
-    margin-right: 35px;
- }
-footer .social{
-    margin: auto;
-}   
-     /*============ poster text */
-    .poster{
-        font-size: 10px;
-        margin: 40px 0;
-        line-height: 20px;
-    }
-    .poster_span{
-        font-size: 17px;
-    }
-      /*===================== accordion */
-
-   .accordion {
-    padding: 15px;
-    font-size: 12px;
-    word-spacing: 4px;
-  }
-  .panel {
-    line-height: 50px;
-    font-size: 15px;
-  }
-  .del_QS{
-     right: 10px;
-     font-size: 40px;
-  }
-}
+}  
+} 
