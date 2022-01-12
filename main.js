@@ -43,6 +43,9 @@ let divLG=document.createElement("div")
         let li_2_Link=document.createElement("a")
         li_2_Link.setAttribute("href","#services")
         li_2_Link.innerText="SERVICES"
+        let i_services=document.createElement("i")
+        i_services.setAttribute("class","fas fa-chevron-down")
+        li_2_Link.appendChild(i_services)
         li_2.appendChild(li_2_Link)
         li_2_Link.appendChild(document.getElementById("service_dropdown"))
     let li_3=document.createElement("li")
@@ -50,6 +53,9 @@ let divLG=document.createElement("div")
            let li_3_Link=document.createElement("a")
            li_3_Link.setAttribute("href","#products")
            li_3_Link.innerText="PRODUCTS"
+           let i_product=document.createElement("i")
+           i_product.setAttribute("class","fas fa-chevron-down")
+           li_3_Link.appendChild(i_product)
            li_3.appendChild(li_3_Link)
            li_3_Link.appendChild(document.getElementById("product_dropdown"))
     let li_4=document.createElement("li")
@@ -85,29 +91,26 @@ let divSoc=document.createElement("div")
 
        ///=================== show user information
 
-       let user=document.getElementById("section_user")
+       let user_section=document.getElementById("section_user")
        let user_info=document.getElementById("user_info")
         i1.addEventListener("click",function(){
             i1.classList.toggle("switch_userIcon")
-            if(user.style.display=="block"){
-                user.style.display="none" 
-            }
-            else{
-                user.style.display="block" 
-            }
+            user_section.classList.toggle("switch_user_section")
         })
 ///================ hide user innformation
 
         window.onclick=function(event){
-            if(event.target==user){
-              user.style.display="none"
+            if(event.target==user_section){
+              user_section.classList.toggle("switch_user_section")
+              i1.classList.toggle("switch_userIcon")
             }
-          }
+          }    
 
 ////=========================create burger menu icon 
 
 let burgerIcon=document.createElement("div")
     burgerIcon.setAttribute("id","burgerIcon")
+    burgerIcon.setAttribute("class","burgerIcon")
     document.body.appendChild(burgerIcon)
     let line1=document.createElement("div")
     line1.setAttribute("class","line line1")
@@ -132,10 +135,18 @@ document.body.appendChild(divBGmenu)
   let BG_a2=document.createElement("a")
       BG_a2.setAttribute("href","#services")
       BG_a2.innerText="SERVICES"
+      let BG_i_services=document.createElement("i")
+      BG_i_services.setAttribute("class","fas fa-chevron-down")
+      BG_a2.appendChild(BG_i_services)
+      BG_a2.appendChild(document.getElementById("BG_service_dropdown"))
       divBGmenu.appendChild(BG_a2)
   let BG_a3=document.createElement("a")
       BG_a3.setAttribute("href","#products")
       BG_a3.innerText="PRODUCTS"
+      let BG_i_product=document.createElement("i")
+      BG_i_product.setAttribute("class","fas fa-chevron-down")
+      BG_a3.appendChild(BG_i_product)
+      BG_a3.appendChild(document.getElementById("BG_product_dropdown"))
       divBGmenu.appendChild(BG_a3)
   let BG_a4=document.createElement("a")
       BG_a4.setAttribute("href","#FAQ_div")
@@ -205,54 +216,6 @@ li_3_Link.addEventListener("click",function(){
     li_3_Link.classList.remove("active_nav") 
    })
        
-
-//================== send information to the block by local storige
-
-let btn=document.getElementById("submit")
-let fname=document.getElementById("fname")
-let lname=document.getElementById("lname")
-let email=document.getElementById("email")
-let about=document.getElementById("about")
-let arr=[];
-let counter=1
-btn.addEventListener("click",function(e){
-    e.preventDefault()
-    let objUser={
-        id:counter++,
-        first_name:fname.value,
-        last_name:lname.value,
-        email_address:email.value,
-        moreInfo:about.value
-    }
-    document.getElementById("user_info").style.transform="scale(1)"  
-    arr.push(objUser)
-    localStorage.setItem('users', JSON.stringify(arr))
-    location.reload()                                      
-})                              
-
-let userInfo=JSON.parse(localStorage.getItem(`users`)) 
-for(let i=0; i<userInfo.length; i++){
-    let span1=document.getElementById("entered_fname")
-    let span2=document.getElementById("entered_lname")
-    let span3=document.getElementById("entered_email")
-    let span4=document.getElementById("entered_MoreInfo")
-    span1.innerText=userInfo[i].first_name
-    span2.innerText=userInfo[i].last_name
-    span3.innerText=userInfo[i].email_address
-    span4.innerText=userInfo[i].moreInfo
-
-    //=============delete information
-
-let reset=document.getElementById("reset")
-reset.addEventListener("click", ()=>{
-    localStorage.clear()
-    ///  location.reload()
-    span1.innerText=""
-    span2.innerText=""
-    span3.innerText=""
-    span4.innerText=""
-})
-}
         ////=========== lightmode function
 
 i2.addEventListener("click",switchFunction)
@@ -328,11 +291,13 @@ window.onscroll= function(){
                 header.classList.add("header_animation")
                 img.classList.add("img_animation")
                 a[i].classList.add("a_animation")
+                burgerIcon.classList.add("burgerIcon_animation")
             }
          else{
                 header.classList.remove("header_animation")
                 img.classList.remove("img_animation")
                 a[i].classList.remove("a_animation")
+                burgerIcon.classList.remove("burgerIcon_animation")
             }
         }
         if(document.body.scrollTop>200 || document.documentElement.scrollTop >200){
@@ -358,15 +323,6 @@ window.onscroll= function(){
             btt.classList.remove("move_backToTop")
         }
 
-        if(document.body.scrollTop>4900 || document.documentElement.scrollTop >4900){
-            FAQ.style.transform="translateX(1700px)"
-            document.getElementById("i").style.color="rgb(49, 48, 48)"
-        }
-        else{
-            FAQ.style.transform="translateX(0)" 
-            document.getElementById("i").style.color="#d3b762"
-        }
-
         if(document.body.scrollTop>750 || document.documentElement.scrollTop >750){
             contact.transform="translateX(-1000px)"
         }
@@ -381,10 +337,10 @@ window.onscroll= function(){
 $(function(){
     $(window).scroll(function(){
         if($(window).scrollTop()>500){
-            $(`.img`).each(function() {
+            $(`.service_content`).each(function() {
                 let x = $(this).offset().top
                 W = $(window).scrollTop()
-                x < W + 650 && $(this).addClass(`fadeInLeft`)
+                x < W + 650 && $(this).addClass(`fadeInup`)
              })
              $(`.product_content`).each(function() {
                 let x = $(this).offset().top
@@ -393,9 +349,15 @@ $(function(){
             }) 
         }
         else{
-            $(`.img`).removeClass(`fadeInLeft`)
+            $(`.service_content`).removeClass(`fadeInup`)
             $(`.product_content`).removeClass(`fadeInup`)
+            $(`#FAQ`).removeClass(`fadeInup`)
         }
+        $(`.FAQ`).each(function() {
+            let x = $(this).offset().top
+              W = $(window).scrollTop()
+              x < W + 650 && $(this).addClass(`fadeInup`)
+        }) 
        
     })
 })
