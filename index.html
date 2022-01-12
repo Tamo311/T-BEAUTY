@@ -16,8 +16,22 @@
     <!--------header  created in JS -------->
 
        <!-- ----------service dropdown list ------------>
-       <div id="service_dropdown">
-        <ul id="service_dropdown_ul" >
+
+       <div id="service_dropdown" class="service_dropdown">
+        <ul class="service_dropdown_ul" id="service_dropdown_ul" >
+            <li> <a href="#services">Injections</a></li> 
+            <li> <a href="#services">Dermaplaning</a></li> 
+            <li> <a href="#services">Skin Surfacing</a></li> 
+            <li> <a href="#services">Tightening</a></li>
+            <li> <a href="#services">Micro-needling</a></li>
+            <li> <a href="#services">dermabrasion</a></li>
+        </ul>
+    </div>
+
+    <!-- --------------burger_menu service dropdown -->
+
+    <div id="BG_service_dropdown" class="service_dropdown">
+        <ul class="service_dropdown_ul" id="BG_service_dropdown_ul" >
             <li> <a href="#services">Injections</a></li> 
             <li> <a href="#services">Dermaplaning</a></li> 
             <li> <a href="#services">Skin Surfacing</a></li> 
@@ -29,8 +43,19 @@
 
     <!------------- product dropdown list-------- -->
 
-        <div id="product_dropdown">
-            <ul id="product_dropdown_ul">
+        <div id="product_dropdown" class="product_dropdown">
+            <ul class="product_dropdown_ul" id="product_dropdown_ul">
+                <li> <a href="#products">Juvederm</a></li>
+                <li> <a href="#products">Dysport</a></li>
+                <li> <a href="#products">Belkyra</a></li>
+                <li> <a href="#products">Botox</a></li>
+                <li> <a href="#products">Latisse </a></li>
+            </ul>
+        </div>
+   <!-- -----------burger_menu product dropdown -->
+
+        <div id="BG_product_dropdown" class="product_dropdown">
+            <ul class="product_dropdown_ul" id="BG_product_dropdown_ul">
                 <li> <a href="#products">Juvederm</a></li>
                 <li> <a href="#products">Dysport</a></li>
                 <li> <a href="#products">Belkyra</a></li>
@@ -41,14 +66,13 @@
 
     <!----------- form section----- -->
  <div class="main">
+    
     <div class="container">
         <div id="main">
             <aside id="aside">
                 <form action="" id="form" class="form">
-                    <label for="#fname"> first name:  <input type="text" id="fname" required ></label>
-                    <label for="#lname"> last name:  <input type="text" id="lname" required > </label>
                     <label for="#email"> email:  <input type="text" id="email" required ></label>
-                    <label for="#about"> about you:  <input type="text" id="about" required > </label>
+                    <label for="#about">comment:  <input type="text" id="about" required > </label>
                     <button id="submit" type="submit"> subscribe </button>
                 </form>
             </aside>
@@ -57,22 +81,22 @@
 </div>
 
 <!----------------- user information --------->
-
-    <section id="section_user" >
+ <div class="container">
+    <section id="section_user" class="section_user" >
         <div id="user_info" class="user_info">
-            <h2>user information</h2>
-            <h4>first-name: <span id="entered_fname"></span> </h4> 
-            <h4>last-name:  <span id="entered_lname"></span></h4>
-            <h4>email: <span id="entered_email"></span></h4> 
-            <h4>about you: <span id="entered_MoreInfo"></span></h4> 
+            <h2 id="user_info_h2">NO INFORMATION</h2>
+            <h4> your email: <span id="entered_email"></span></h4> 
+            <h4>your comment: <span id="entered_MoreInfo"></span></h4> 
             <button type="reset" id="reset"> reset </button>
         </div>
     </section>
+ </div>
 
      <!-------------- banner text ------------>
-
-     <div class="banner_text">
-        <h1> BEAUTY AND HEALTHY SKIN IS YOUR VISIT CARD</h1>
+    <div class="container">
+        <div class="banner_text">
+            <h1> BEAUTY AND HEALTHY SKIN IS YOUR VISIT CARD</h1>
+        </div>
     </div>
 
       <!------------- organic skin care section------ -->
@@ -259,7 +283,7 @@
                         <h5><i class="fas fa-phone-alt"></i>+995 555 222 111</h5> 
                         <h5><i class="fas fa-envelope"></i>T&B.info@gmail.com</h5>
                         <h5><i class="fas fa-clock"></i>Mon/Sat 10:00_20:00  </h5> 
-                        <h5><i class="fas fa-clock"></i>By appointment only Saturday & Sunday</h5> 
+                        <h5><i class="fas fa-clock"></i>By appointment only Saturday</h5> 
                         <h5><i class="fas fa-map-marker-alt"></i>#21 Chavchavadze Ave,Tbilisi 0170</h5>   
                     </div>
                     <div class="location">
@@ -270,7 +294,8 @@
           
     </div>
     <!--=-----------back to top button---------- -->
-    <a href="#" class="backToTop" id="backToTop"><i id="i" class="fas fa-chevron-circle-left"></i> </a>
+   
+    <a href="#" class="backToTop" id="backToTop"><i class="fas fa-angle-double-up"></i></a>
 
     
     
@@ -291,5 +316,6 @@
 
 
      <script src="./main.js"> </script>
+     <script src="./localStorage.js"></script>
 </body>
 </html>
