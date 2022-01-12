@@ -760,7 +760,6 @@ footer .social i{
     filter: saturate(1);
     opacity: 1;
     animation: animation_fadeInUp 1s ;
-    animation-duration: 1s;
     transition: 1s;
 }
    /*================= responsive--- media queries */
