@@ -364,13 +364,7 @@ $(function(){
         else{
             $(`.service_content`).removeClass(`fadeInup`)
             $(`.product_content`).removeClass(`fadeInup`)
-            $(`#FAQ`).removeClass(`fadeInup`)
         }
-        $(`.FAQ`).each(function() {
-            let x = $(this).offset().top
-              W = $(window).scrollTop()
-              x < W + 650 && $(this).addClass(`fadeInup`)
-        }) 
        
     })
 })
