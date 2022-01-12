@@ -563,7 +563,7 @@ button:hover{
 
 /*===================== FAQ section */
 
-.FAQ_div{
+#FAQ_div{
     padding-top: 180px;
     transition: ease-in-out 1s;
 }
