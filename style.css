@@ -103,7 +103,6 @@ a:hover{
 }
 .fa-chevron-down{
     margin-left: 2px;
-    font-size: 7px;
 }
 li:hover .fa-chevron-down{
     transform: rotate(-180deg);
@@ -251,13 +250,9 @@ header ul :nth-child(2):hover #service_dropdown,header ul :nth-child(3):hover #p
 }
 #burger_menu ul{
     list-style: none;
-    font-size: 10px;
-}
-#burger_menu ul li a{
-    font-size: 8px;
 }
 #BG_service_dropdown{
-    margin-left: -20px;
+    margin-left: 0;
     padding: 0;
 }
 #BG_product_dropdown{
@@ -265,6 +260,7 @@ header ul :nth-child(2):hover #service_dropdown,header ul :nth-child(3):hover #p
 }
 #burger_menu ul{
     backdrop-filter: blur(10px);
+    background-color:rgba(66, 64, 64, 0.815) ;
 }
 #burger_menu :nth-child(2):hover #BG_service_dropdown, #burger_menu :nth-child(3):hover #BG_product_dropdown{
     transform: scaleY(1);
@@ -934,7 +930,7 @@ input:focus{
 label{
     letter-spacing: 0px;
     margin-top: 10px;
-    font-size: 12px;
+    font-size: 15px;
 }
 .banner_text h1{
     font-size: 25px;
@@ -1012,7 +1008,7 @@ label{
  }
  .user_info h4{
     margin-top: 15px;
-    font-size: 10px;
+    font-size: 15px;
  }
  /*////================= form  */
 form{
@@ -1134,7 +1130,7 @@ header .social{
 }
 .footer{
     padding: 5px 0;
-    font-size: xx-small;
+    font-size: x-small;
     font-weight: 500;
 }
 }
@@ -1180,17 +1176,18 @@ header .social{
         margin-top: 75px;
     }
     form{
-        width: 280px;
+        width: 200px;
      }
      #submit{
          width: 40%;
      }
      input{
-         width: 200px;
+         width: 130px;
      }
     .user_info{
-        width: 80%;
+        width: 70%;
         backdrop-filter: blur(10px);
+        background-color:rgba(66, 64, 64, 0.815) ;
         transition: .5s;
     }
     #reset{
@@ -1225,7 +1222,7 @@ header .social{
     font-size: 17px;
 }
 .organic_content p{
-    font-size: 12px;
+    font-size: 15px;
     width: 200px;
 }
   /* =================product section */
@@ -1234,7 +1231,7 @@ header .social{
     width: 70%;
 }
 .product_content h2{
-    font-size: 12px;
+    font-size: 17px;
 }
 .product_img img{
     height: 150px;
@@ -1248,9 +1245,6 @@ header .social{
 @media only screen and (max-width:375px){
     .container{
         width: 340px;
-    }
-    .product_content h2{
-        font-size: 8px;
     }
     .product_content{
         height: 400px;
