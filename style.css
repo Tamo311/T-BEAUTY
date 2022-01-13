@@ -259,7 +259,7 @@ header ul :nth-child(2):hover #service_dropdown,header ul :nth-child(3):hover #p
 .BG_service_dropdown{
     margin-left: -20px;
 }
-.burger_menu ul{
+#burger_menu ul{
     list-style: none;
     backdrop-filter: blur(10px);
     margin-top: 10px;
